@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:rosca/assets/login_button.dart';
+import 'package:rosca/screens/sign_in_screen.dart';
+import 'package:rosca/screens/welcom_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -7,6 +8,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.white,
         body: Column(
@@ -49,7 +51,31 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 80,),
-            const LoginButton(),
+            Container(
+              width: 350,
+              height: 50,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(25),
+                color: Colors.deepOrangeAccent,
+              ),
+              child: MaterialButton(
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (e) => const WelcomeScreen(),
+                    ),
+                  );
+                },
+                padding: EdgeInsets.zero,
+                textColor: Colors.white,
+                child: Text(
+                  'Get Started',
+                  style: TextStyle(fontSize: 16),
+                ), // Adjust the font size as needed
+              ),
+            )
+
           ],
         ),
       ),

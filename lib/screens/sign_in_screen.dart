@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:icons_plus/icons_plus.dart';
+import 'package:rosca/screens/forgot_password_screen.dart';
+import 'package:rosca/screens/home_page.dart';
 import 'package:rosca/screens/sign_up_screen.dart';
 import 'package:rosca/widgets/custom_scafold.dart';
 
@@ -118,6 +120,13 @@ class _SignInScreenState extends State<SignInScreen> {
                       height: 20,
                     ),
                     GestureDetector(
+                      onTap: (){
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (e) => const ForgotPassword()),
+                        );
+                      },
                       child: const Text(
                         'Forgot password?',
                         style: TextStyle(
@@ -132,7 +141,13 @@ class _SignInScreenState extends State<SignInScreen> {
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          // Navigate to the homepage when the button is pressed
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(builder: (context) => const HomePageScreen()),
+                          );
+                        },
                         child: const Text('Sign in'),
                       ),
                     ),
@@ -183,12 +198,12 @@ class _SignInScreenState extends State<SignInScreen> {
                             color: Colors.white, // Set the text color to white
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         GestureDetector(
                           onTap: () {
-                            Navigator.push(
+                            Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (e) => const SignUpScreen()),
